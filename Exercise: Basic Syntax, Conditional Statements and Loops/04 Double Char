@@ -1,0 +1,5 @@
+word = input()
+
+for char in word:
+    char *= 2
+    print(char, end="")
