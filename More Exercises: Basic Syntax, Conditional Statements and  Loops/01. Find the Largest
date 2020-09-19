@@ -1,0 +1,20 @@
+num = input()
+num = str(num)
+
+# arr_digits stores the value
+arr_digits = []
+
+
+def findMaxNum(digits):
+    digits.sort(reverse=True)
+    # reverse = True changes the order of the numbers from highest to lowest
+    number = ''.join(digits)
+    # "".join(digits) - joins the digits together
+    return number
+
+
+for digit in range(len(num)):
+    arr_digits.append(num[digit])
+# The append() method in python adds a single item to the existing list. 
+# It doesn’t return a new list of items but will modify the original list by adding the item to the end of the list.
+print(findMaxNum(arr_digits))
