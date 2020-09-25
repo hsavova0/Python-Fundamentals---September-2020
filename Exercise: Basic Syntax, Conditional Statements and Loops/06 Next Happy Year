@@ -1,0 +1,15 @@
+You&#39;re saying good-bye your best friend, &quot;See you next happy year&quot;. Happy Year is the year with only distinct digits,
+(e.g) 2018. Write a program that receives an integer number and finds the next happy year.
+
+year = int(input())
+
+while True:
+    year += 1
+    if len(str(year)) == len(set(str(year))):
+        print(year)
+        break
+        
+        the int needs to be converted to a str, as this is how the possitions can be counted
+        len - gives the total number of elements
+        set - eliminates the repeating elements of the string
+        
