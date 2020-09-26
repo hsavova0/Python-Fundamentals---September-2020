@@ -1,0 +1,12 @@
+first_str = input()
+second_str = input()
+new_str = ''
+# The len function gives the total numbers of characters in the string. So, the range is defined by the lenght of the characters in the string.
+for i in range(0, len(first_str)):
+    if first_str[i] != second_str[i]:
+# The list function separates the characters one from the other
+        first_str = list(first_str)
+# the first string elements equals the second string elements
+        first_str[i] = second_str[i]
+        new_str = ''.join(str(e) for e in first_str)
+        print(new_str)
