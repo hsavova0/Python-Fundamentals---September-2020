@@ -1,0 +1,9 @@
+lst = []
+lines_number = int(input())
+
+
+for n in range(lines_number):
+    letter = input()
+    num = ord(letter)
+    lst.append(num)
+print("The sum equals:", sum(lst))
