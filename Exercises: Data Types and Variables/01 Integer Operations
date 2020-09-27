@@ -1,0 +1,10 @@
+number_1 = int(input())
+number_2 = int(input())
+number_3 = int(input())
+number_4 = int(input())
+
+adding = number_1 + number_2
+divide = adding / number_3
+result = divide * number_4
+
+print(int(result))
