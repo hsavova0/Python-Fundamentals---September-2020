@@ -1,0 +1,10 @@
+n = int(input())
+p = int(input())
+
+full_courses = n // p
+if not n % p == 0:
+    reminder = n%p
+    total_courses = full_courses + 1
+    print(total_courses)
+else:
+    print(full_courses)
