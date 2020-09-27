@@ -1,10 +1,10 @@
 century_input = int(input())
 
 centuries = century_input * 100
-years = century_input * 36524
+# when you multiply int * float, you will always get a float in the next calculations.
+# if you want to avoid that, you need to convirt the expression into int 
+years = int(century_input * 36524.22)
 days = years * 24
 hours = days * 60
 
 print(f"{century_input} centuries = {centuries} years = {years} days = {days} hours = {hours} minutes")
-
-# There is an error in the code that needs to be removed. Continue searching tomorrow.
