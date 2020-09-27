@@ -1,0 +1,5 @@
+quantity_pound = int(input())
+
+dollars = quantity_pound * 1.31
+
+print(f"{dollars:.3f}")
