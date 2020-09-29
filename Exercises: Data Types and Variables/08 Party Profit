@@ -18,3 +18,5 @@ for i in range(days, days + 1):
         coins -= 2 * party_size
 
 print(f"{party_size} companions receive {coins} each.")
+
+# Not 100%
