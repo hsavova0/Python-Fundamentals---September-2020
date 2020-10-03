@@ -1,0 +1,17 @@
+n = int(input())
+word = input()
+
+story = []
+
+for i in range(n):
+    story_list = input()
+    story.append(story_list)
+
+print(story)
+
+for i in range(len(story) -1, -1, -1):
+    element = story[i]
+    if word not in element:
+        story.remove(element)
+
+print(story)
