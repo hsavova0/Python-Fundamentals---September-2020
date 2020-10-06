@@ -1,0 +1,9 @@
+single_string = input().split(" ")
+
+reverse_list = []
+
+for number in single_string:
+    value = int(number) * - 1
+    reverse_list.append(value)
+
+print(reverse_list)
