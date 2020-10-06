@@ -1,0 +1,14 @@
+sent_off_players = input().split(" ")
+test_list = set(sent_off_players)
+
+team_A = 11
+team_B = 11
+
+for players in test_list:
+    if "A" in players:
+        team_A -= 1
+    else:
+        team_B -= 1
+print(f"Team A - {team_A}; Team B - {team_B}")
+if team_A < 7 or team_B < 7:
+    print("Game was terminated")
