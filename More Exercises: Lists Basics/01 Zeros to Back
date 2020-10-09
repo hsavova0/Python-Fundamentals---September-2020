@@ -1,0 +1,17 @@
+numbers = input()
+split_numbers = numbers.split(", ")
+
+for num in range(len(split_numbers)):
+# Convert the str into int
+    split_numbers[num] = int(split_numbers[num])
+# Counts the number of zeros in the input and gives the range for adding and removing.
+zeros = split_numbers.count(0)
+# Remove the zeros
+for zero_remove in range(zeros):
+    split_numbers.remove(0)
+# Append the zeros at the end of the list.
+for zero_append in range(zeros):
+    split_numbers.append(0)
+
+# Print the output
+print(split_numbers)
