@@ -1,0 +1,11 @@
+a = int(input())
+b = int(input())
+c = int(input())
+
+list_A = []
+
+list_A.append(a)
+list_A.append(b)
+list_A.append(c)
+
+print(max(list_A))
