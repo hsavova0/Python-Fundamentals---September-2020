@@ -1,0 +1,9 @@
+first_number = int(input())
+second_number = int(input())
+third_number = int(input())
+
+def minimum_number(a, b, c):
+    list = [a, b, c]
+    return min(list)
+
+print(minimum_number(first_number, second_number, third_number))
