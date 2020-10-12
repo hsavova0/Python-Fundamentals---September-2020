@@ -1,0 +1,20 @@
+product_input = input()
+quantity_input = float(input())
+
+def total_price(product, quantity):
+    total_price = 0
+    if product == "coffee":
+        price = 1.50
+        total_price = price*quantity
+    elif product == "water":
+        price = 1.00
+        total_price = price*quantity
+    elif product == "coke":
+        price = 1.40
+        total_price = price*quantity
+    elif product == "snacks":
+        price = 2.00
+        total_price = price*quantity
+    return total_price
+
+print(f"{total_price(product_input, quantity_input):.2f}")
