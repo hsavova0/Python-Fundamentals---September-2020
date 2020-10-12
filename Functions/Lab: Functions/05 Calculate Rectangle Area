@@ -1,0 +1,8 @@
+first_number = int(input())
+second_number = int(input())
+
+def area(first_num, second_num):
+    area_num = first_num*second_num
+    return area_num
+
+print(area(first_number,second_number))
