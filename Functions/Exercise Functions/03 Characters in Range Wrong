@@ -1,0 +1,12 @@
+first_character = input()
+second_character = input()
+
+list_characters = []
+
+# def characters_in_range(a, b):
+for i in range(ord(first_character), ord(second_character)+1):
+     list_characters.append(chr(i))
+
+list_characters.pop(0)
+list_characters.pop(-1)
+print(list_characters)
