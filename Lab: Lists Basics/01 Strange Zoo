@@ -7,3 +7,17 @@ meerkat = [tail, body, head]
 meerkat[0], meerkat[2] = meerkat[2], meerkat[0]
 
 print(meerkat)
+
+
+Second solution:
+tail = input()
+body = input()
+head = input()
+
+mearkats_list = []
+
+mearkats_list.append(head)
+mearkats_list.append(body)
+mearkats_list.append(tail)
+
+print(mearkats_list)
