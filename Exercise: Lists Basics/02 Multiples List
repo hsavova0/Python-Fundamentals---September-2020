@@ -12,3 +12,16 @@ while stop:
             break
  
     print(list_with_numbers)
+
+Second way of solving:
+first_number = int(input())
+second_number = int(input())
+
+numbers_list = []
+
+for num in range(second_number + 1):
+    numbers_list.append(num*first_number)
+
+del numbers_list[0]
+
+print(numbers_list)
