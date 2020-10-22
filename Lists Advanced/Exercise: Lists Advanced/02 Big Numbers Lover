@@ -1,0 +1,9 @@
+# 02 Big Numbers Lover
+# Input:
+numbers = input().split(" ")
+
+# Sorts the numbers and reverse the data
+big_numbers = sorted(numbers, reverse= True)
+
+# Output the result by removing the brackets and the spaces from the list.
+print("".join(map(str, big_numbers)))
