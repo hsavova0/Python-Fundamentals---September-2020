@@ -1,0 +1,19 @@
+# Which are in?
+# What is given.
+words_list_1 = input().split(", ")
+words_list_2 = input().split(", ")
+unique_words_list = []
+
+# Check if the element from the first list is contained by the second one.
+for ele_1 in words_list_1:
+    for ele_2 in words_list_2:
+        if ele_1 in ele_2:
+            unique_words_list.append(ele_1)
+
+# Searches through the new list for elements that have been repeated and removes them.
+for word in unique_words_list:
+    if unique_words_list.count(word) > 1:
+        unique_words_list.remove(word)
+
+# Print the result.
+print(unique_words_list)
