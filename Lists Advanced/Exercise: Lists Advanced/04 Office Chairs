@@ -1,0 +1,19 @@
+number_of_rooms = int(input())
+total_free_chairs = 0
+total_needed_chairs_in_room = 0
+ 
+for rooms in range(number_of_rooms):
+    places = input().split(" ")
+    taken_places = len(places[0])
+    requested_places = int(places[1])
+    if taken_places < requested_places:
+        needed_chairs_in_room = requested_places - taken_places
+        total_needed_chairs_in_room += needed_chairs_in_room
+        print(f"{needed_chairs_in_room} more chairs needed in room {rooms + 1}")
+    elif taken_places >= requested_places:
+        free_chairs = taken_places - requested_places
+        total_free_chairs += free_chairs
+ 
+if total_needed_chairs_in_room < total_free_chairs:
+    total_free_chairs = total_free_chairs - total_needed_chairs_in_room
+    print(f"Game On, {total_free_chairs} free chairs left")
