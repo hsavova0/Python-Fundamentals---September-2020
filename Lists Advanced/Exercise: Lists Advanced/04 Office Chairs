@@ -17,3 +17,5 @@ for rooms in range(number_of_rooms):
 if total_needed_chairs_in_room < total_free_chairs:
     total_free_chairs = total_free_chairs - total_needed_chairs_in_room
     print(f"Game On, {total_free_chairs} free chairs left")
+
+# Needs to be checked. Judge gives 80/100
