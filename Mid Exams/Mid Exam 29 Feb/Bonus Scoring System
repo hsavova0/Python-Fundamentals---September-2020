@@ -1,0 +1,20 @@
+import math
+
+count_of_students = int(input())
+count_of_lectures = int(input())
+initial_bonus = int(input())
+
+students_results = []
+students_attendance_list = []
+
+for num in range(count_of_students):
+    student_attendance = int(input())
+    students_attendance_list.append(student_attendance)
+    total_bonus = student_attendance/count_of_lectures * (5 + initial_bonus)
+    students_results.append(total_bonus)
+
+max_bonus = max(students_results)
+max_student_attendance = max(students_attendance_list)
+
+print(f"Max Bonus: {math.ceil(max_bonus)}.")
+print(f"The student has attended {max_student_attendance} lectures.")
