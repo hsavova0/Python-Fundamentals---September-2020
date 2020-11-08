@@ -1,14 +1,21 @@
-sent_off_players = input().split(" ")
-test_list = set(sent_off_players)
+list_of_players = input().split(" ")
+final_list = set(list_of_players)
 
-team_A = 11
-team_B = 11
+team_a = 11
+team_b = 11
+is_terminated = False
 
-for players in test_list:
+for players in final_list:
     if "A" in players:
-        team_A -= 1
+        team_a -= 1
     else:
-        team_B -= 1
-print(f"Team A - {team_A}; Team B - {team_B}")
-if team_A < 7 or team_B < 7:
+        team_b -= 1
+    if team_a < 7 or team_b < 7:
+        is_terminated = True
+        break
+
+print(f"Team A - {team_a}; Team B - {team_b}")
+
+
+if is_terminated:
     print("Game was terminated")
