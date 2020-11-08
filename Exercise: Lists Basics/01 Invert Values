@@ -1,9 +1,9 @@
-single_string = input().split(" ")
+single_string = [int(el) for el in input().split(" ")]
 
-reverse_list = []
+opposite_numbers = []
 
-for number in single_string:
-    value = int(number) * - 1
-    reverse_list.append(value)
+for i in single_string:
+    new_number = i * (- 1)
+    opposite_numbers.append(new_number)
 
-print(reverse_list)
+print(opposite_numbers)
