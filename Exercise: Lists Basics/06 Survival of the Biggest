@@ -11,3 +11,13 @@ for _ in range(remover):
     numbers.remove(min(numbers))
 
 print(numbers)
+
+
+Second method:
+list_of_integer = [int(el) for el in input().split(" ")]
+n = int(input())
+
+for num in range(n):
+    list_of_integer.remove(min(list_of_integer))
+
+print(list_of_integer)
