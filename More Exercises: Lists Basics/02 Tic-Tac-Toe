@@ -1,0 +1,55 @@
+line_1 = [int(num) for num in input().split(" ")]
+line_2 = [int(num) for num in input().split(" ")]
+line_3 = [int(num) for num in input().split(" ")]
+
+first_player = 1
+second_player = 2
+
+list_players = []
+
+# Diagonals
+if first_player == line_1[0] == line_2[1] == line_3[2]:
+    print("First player won")
+elif first_player == line_1[2] == line_2[1] == line_3[0]:
+    print("First player won")
+# Horisontal
+elif first_player == line_1[0] == line_1[1] == line_1[2]:
+    print("First player won")
+elif first_player == line_2[0] == line_2[1] == line_2[2]:
+    print("First player won")
+elif first_player == line_3[0] == line_3[1] == line_3[2]:
+    print("First player won")
+# Vertical
+elif first_player == line_1[0] == line_2[0] == line_3[0]:
+    print("First player won")
+elif first_player == line_1[1] == line_2[1] == line_3[1]:
+    print("First player won")
+elif first_player == line_1[2] == line_2[2] == line_3[2]:
+    print("First player won")
+else:
+    list_players.append(first_player)
+
+# Diagonals
+if second_player == line_1[0] == line_2[1] == line_3[2]:
+    print("Second player won")
+elif second_player == line_1[2] == line_2[1] == line_3[0]:
+    print("Second player won")
+# Horisontal
+elif second_player == line_1[0] == line_1[1] == line_1[2]:
+    print("Second player won")
+elif second_player == line_2[0] == line_2[1] == line_2[2]:
+    print("Second player won")
+elif second_player == line_3[0] == line_3[1] == line_3[2]:
+    print("Second player won")
+# Vertical
+elif second_player == line_1[0] == line_2[0] == line_3[0]:
+    print("Second player won")
+elif second_player == line_1[1] == line_2[1] == line_3[1]:
+    print("Second player won")
+elif second_player == line_1[2] == line_2[2] == line_3[2]:
+    print("Second player won")
+else:
+    list_players.append(second_player)
+
+if first_player in list_players and second_player in list_players:
+    print("Draw!")
