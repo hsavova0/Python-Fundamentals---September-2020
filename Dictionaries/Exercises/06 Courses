@@ -1,0 +1,18 @@
+data = input()
+courses = {}
+
+while not data == "end":
+    course_name, students_name = data.split(" : ")
+    if course_name not in courses:
+        courses[course_name] = []
+    courses[course_name].append(students_name)
+    data = input()
+
+total_registered_students = {}
+
+for course_name, students_name in courses.items():
+    total_students = len(students_name)
+    # total_registered_students[course] = total_students
+    print(f"{course_name}: {total_students}")
+    for el in students_name:
+        print(f"-- {el}")
