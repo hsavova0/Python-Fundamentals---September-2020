@@ -1,0 +1,24 @@
+n = int(input())
+
+register_user = {}
+
+for _ in range(n):
+    data = input().split()
+    if data[0] == "register":
+        name = data[1]
+        plate_number = data[2]
+        if name not in register_user:
+            register_user[name] = plate_number
+            print(f"{name} registered {plate_number} successfully")
+        else:
+            print(f"ERROR: already registered with plate number {plate_number}")
+    elif data[0] == "unregister":
+        name = data[1]
+        if name not in register_user:
+            print(f"ERROR: user {name} not found")
+        else:
+            register_user.pop(name)
+            print(f"{name} unregistered successfully")
+
+for name, plate_number in register_user.items():
+    print(f"{name} => {plate_number}")
