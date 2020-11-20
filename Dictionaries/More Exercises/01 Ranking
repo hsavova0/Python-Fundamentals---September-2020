@@ -1,0 +1,46 @@
+data_credentials = input()
+course_credentials = {}
+submissions_dict = {}
+while not data_credentials == "end of contest":
+    if "end of contest" not in data_credentials:
+        course_name, password = data_credentials.split(":")
+        course_credentials[course_name] = password
+    else:
+        break
+    data_credentials = input()
+
+submissions = input()
+
+while not submissions == "end of submissions":
+    if "end of contest" not in submissions:
+        exam_name, exam_password, student, points = submissions.split("=>")
+        points = int(points)
+        for key in course_credentials:
+            if key == exam_name:
+                submissions_dict = []
+                submissions_dict.append(key)
+    else:
+        break
+    submissions = input()
+
+print(submissions_dict)
+
+
+
+
+Input data:
+Part One Interview:success
+Js Fundamentals:Pesho
+C# Fundamentals:fundPass
+Algorithms:fun
+end of contests
+C# Fundamentals=>fundPass=>Tanya=>350
+Algorithms=>fun=>Tanya=>380
+Part One Interview=>success=>Nikola=>120
+Java Basics Exam=>pesho=>Petkan=>400
+Part One Interview=>success=>Tanya=>220
+OOP Advanced=>password123=>BaiIvan=>231
+C# Fundamentals=>fundPass=>Tanya=>250
+C# Fundamentals=>fundPass=>Nikola=>200
+Js Fundamentals=>Pesho=>Tanya=>400
+end of submissions
