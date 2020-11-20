@@ -3,33 +3,35 @@ results = {}
 languages = {}
 counter_c = 0
 counter_j = 0
+submissions = []
 
 while "exam finished" not in data:
+    username = data[0]
+    language = data[1]
+    if language == "C#":
+        counter_c += 1
+    elif language == "Java":
+        counter_j += 1
     for word in data:
         if "banned" not in data:
-            username = data[0]
-            language = data[1]
             points = data[2]
-            results[username] = points
-            languages[username] = language
+            if username not in results:
+                results[username] = points
+            else:
+                if points > points:
+                    results[username] = points
         else:
             username = data[0]
             if username in results:
                 results.pop(username)
     data = input().split("-")
 
-for name, language in languages.items():
-    if language == "C#":
-        counter_c += 1
-    elif language == "Java":
-        counter_j += 1
 
 print("Results:")
-for name, points in results.items():
-    print(f"{name} | {points}")
+sorted_dict = dict(sorted(results.items(), key=lambda x: (x[1],x[0]), reverse=True))
+print(sorted_dict)
+    # print(f"{name} | {points}")
 
 print("Submissions:")
 print(f"C# - {counter_c}")
 print(f"Java - {counter_j}")
-
-To be continued tomorrow.
