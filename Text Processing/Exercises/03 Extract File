@@ -1,4 +1,6 @@
 import os
 base = os.path.basename(input())
-print(f"File name: {os.path.splitext(base)[0]}")
-print(f"File extension: {os.path.splitext(base)[1]}")
+new_base = base.split(".")
+
+print(f"File name: {new_base[0]}")
+print(f"File extension: {new_base[1]}")
