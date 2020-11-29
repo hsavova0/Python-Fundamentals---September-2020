@@ -1,0 +1,8 @@
+list_of_strings = input().split()
+result = []
+
+for w in list_of_strings:
+    new_word = w * len(w)
+    result.append(new_word)
+
+print("".join(result))
