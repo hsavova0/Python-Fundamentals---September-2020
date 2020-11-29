@@ -1,0 +1,4 @@
+import os
+base = os.path.basename(input())
+print(f"File name: {os.path.splitext(base)[0]}")
+print(f"File extension: {os.path.splitext(base)[1]}")
