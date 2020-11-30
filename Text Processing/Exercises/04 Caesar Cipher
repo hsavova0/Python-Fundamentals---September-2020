@@ -1,0 +1,8 @@
+text = input()
+encrypted_list = []
+for character in text:
+    character = ord(character)
+    encrypted_character = character + 3
+    encrypted_character = chr(encrypted_character)
+    encrypted_list.append(encrypted_character)
+print("".join(encrypted_list))
