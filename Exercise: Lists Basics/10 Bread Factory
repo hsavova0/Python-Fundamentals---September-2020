@@ -1,49 +1,40 @@
-# Title: Bread Factory
-# Input
-event = input().split("|")
-# Given numbers
-initial_energy = 100
-initial_coins = 100
+working_day_events = input().split("|")
 
-# Define the variables
-current_energy = 100
+energy = 100
 coins = 100
 flag = True
 
-# Logic
-for element in event:
-    item, number = element.split("-")
+for day in working_day_events:
+    event_name, number = day.split("-")
     number = int(number)
-    if item == "rest":
-        if current_energy + number >= initial_energy:
+    if event_name == "rest":
+        if energy + number > 100:
             print("You gained 0 energy.")
             print("Current energy: 100.")
         else:
-            current_energy += number
+            energy += number
             print(f"You gained {number} energy.")
-            print(f"Current energy: {current_energy}.")
-    elif item == "order":
-        if current_energy - 30 >= 0:
-            current_energy -= 30
+            print(f"Current energy: {energy}.")
+    elif event_name == "order":
+        if energy - 30 >= 0:
+            energy -= 30
             coins += number
             print(f"You earned {number} coins.")
         else:
-            current_energy += 50
+            energy += 50
             print("You had to rest!")
-            # when you use the continue statement, you go to the next element in the list
             continue
     else:
-        if coins > number:
-            coins -= number
-            print(f"You bought {item}.")
+        coins -= number
+        if coins > 0:
+            print(f"You bought {event_name}.")
         else:
-            # if the boolean is flagged as False, the code outside the for loop wont be executed.
+            print(f"Closed! Cannot afford {event_name}.")
             flag = False
-            print(f"Closed! Cannot afford {item}.")
-            # when you use the break statement, you break the for loop
             break
 
-if flag:
+while flag:
     print("Day completed!")
     print(f"Coins: {coins}")
-    print(f"Energy: {current_energy}")
+    print(f"Energy: {energy}")
+    break
