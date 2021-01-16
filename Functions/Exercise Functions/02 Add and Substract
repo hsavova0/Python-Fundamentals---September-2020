@@ -1,10 +1,11 @@
-first_number = int(input())
-second_number = int(input())
-third_number = int(input())
+def add_and_subtract(num_1, num_2, num_3):
+    add_two_numberts = num_1 + num_2
+    subtract = add_two_numberts - num_3
+    return subtract
 
-def solve(a, b, c):
-    sum_numbers = (a + b)
-    add_and_substract = sum_numbers - third_number
-    return add_and_substract
 
-print(solve(first_number, second_number, third_number))
+number_1 = int(input())
+number_2 = int(input())
+number_3 = int(input())
+
+print(add_and_subtract(number_1, number_2, number_3))
