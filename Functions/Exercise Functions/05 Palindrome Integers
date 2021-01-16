@@ -12,3 +12,19 @@ nums_string = separate_elements(data, ", ")
 
 for el in nums_string:
     print(is_palindrome(el))
+
+
+
+Second solution:
+def check_if_palindrom(given_numbers):
+    for symbol in given_numbers:
+        revers_symbol = symbol[::-1]
+        if revers_symbol == symbol:
+            print("True")
+        else:
+            print("False")
+    return
+
+
+numbers_to_check = input().split(", ")
+check_if_palindrom(numbers_to_check)
