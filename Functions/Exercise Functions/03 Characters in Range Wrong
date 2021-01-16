@@ -10,3 +10,19 @@ for i in range(ord(first_character), ord(second_character)+1):
 list_characters.pop(0)
 list_characters.pop(-1)
 print(list_characters)
+
+
+Second solution:
+def characters_in_range(character_1, character_2):
+    character_1 = ord(character_1)
+    character_2 = ord(character_2)
+    table_list = []
+    for character in range(character_1 + 1, character_2):
+        table_list.append(chr(character))
+    return table_list
+
+
+char_1 = input()
+char_2 = input()
+
+print(*characters_in_range(char_1, char_2))
