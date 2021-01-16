@@ -11,3 +11,18 @@ def odd_even(n):
     return (f"Odd sum = {odd}, Even sum = {even}")
 
 print(odd_even(single_number))
+
+def odd_and_even_sum(n):
+    even = 0
+    odd = 0
+    for i in n:
+        i = int(i)
+        if i % 2 == 0:
+            even += i
+        else:
+            odd += i
+    return f"Odd sum = {odd}, Even sum = {even}"
+
+
+number = input()
+print(odd_and_even_sum(number))
