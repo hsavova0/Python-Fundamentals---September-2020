@@ -1,3 +1,5 @@
+Solution with function:
+
 first_number = int(input())
 second_number = int(input())
 third_number = int(input())
@@ -7,3 +9,36 @@ def minimum_number(a, b, c):
     return min(list)
 
 print(minimum_number(first_number, second_number, third_number))
+
+
+Second solution with list slicing and unpacking:
+def find_the_smallest(num_1, num_2, num_3):
+    numbers = [num_1, num_2, num_3]
+    numbers.sort()
+    smallest_num = numbers[:1]
+    return smallest_num
+
+
+number_1 = int(input())
+number_2 = int(input())
+number_3 = int(input())
+
+print(*find_the_smallest(number_1, number_2, number_3))
+
+Third solution with for cycle and comparison:
+def find_the_smallest(num_1, num_2, num_3):
+    numbers = [num_1, num_2, num_3]
+    for num in numbers:
+        if num_1 < num_2 and num_1 < num_3:
+            return num_1
+        elif num_2 < num_1 and num_2 < num_3:
+            return num_2
+        elif num_3 < num_1 and num_3 < num_2:
+            return num_3
+
+
+number_1 = int(input())
+number_2 = int(input())
+number_3 = int(input())
+
+print(find_the_smallest(number_1, number_2, number_3))
