@@ -1,0 +1,17 @@
+def repeat_percentage(num):
+    if num < 100:
+        numbers_to_repeat = num // 10
+        percentage_to_repeat = "%" * numbers_to_repeat
+        left_dots = (100 - num) // 10
+        dots_to_print = left_dots * "."
+        print(f"{num}% [{percentage_to_repeat}{dots_to_print}]")
+        print("Still loading...")
+    else:
+        numbers_to_repeat = num // 10
+        percentage_to_repeat = "%" * numbers_to_repeat
+        print("100% Complete!")
+        print(f"[{percentage_to_repeat}]")
+
+
+value = int(input())
+repeat_percentage(value)
