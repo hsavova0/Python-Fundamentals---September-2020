@@ -17,3 +17,14 @@ for word in unique_words_list:
 
 # Print the result.
 print(unique_words_list)
+
+# Second solution:
+first_list = input().split(", ")
+second_list = input()
+final_output = []
+
+for el in first_list:
+    if el in second_list:
+        final_output.append(el)
+
+print(final_output)
