@@ -19,3 +19,29 @@ if total_needed_chairs_in_room < total_free_chairs:
     print(f"Game On, {total_free_chairs} free chairs left")
 
 # Needs to be checked. Judge gives 80/100
+
+
+# 04 Office chairs - this solution gives 100 / 100 :) 
+
+number_of_rooms = int(input())
+free_chairs = 0
+needed_non_existing_chairs = 0
+
+for rooms in range(number_of_rooms):
+    chairs = input().split()
+    existing_chairs, needed_chairs = chairs
+    length_existing_chairs = len(existing_chairs)
+    needed_chairs = int(needed_chairs)
+    if length_existing_chairs >= needed_chairs:
+        if length_existing_chairs > needed_chairs:
+            difference_free_chairs = length_existing_chairs - needed_chairs
+            free_chairs += difference_free_chairs
+        elif length_existing_chairs == needed_chairs:
+            continue
+    else:
+        needed_chairs_in_room = needed_chairs - length_existing_chairs
+        needed_non_existing_chairs += needed_chairs_in_room
+        print(f"{needed_chairs_in_room} more chairs needed in room {rooms + 1}")
+
+if needed_non_existing_chairs == 0:
+    print(f"Game On, {free_chairs} free chairs left")
