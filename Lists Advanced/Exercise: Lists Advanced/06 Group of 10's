@@ -5,3 +5,22 @@ nums = list(map(int, n))
 for i in range(1, ceil(max(nums) / 10) + 1):
     result = [nums[j] for j in range(len(nums)) if nums[j] in range(i * 10 - 10 + 1, i * 10 + 1)]
     print(f"Group of {i*10}'s: {result}")
+
+# 6 List of 10`s - Almost there, living in a prayer.
+
+list_of_numbers = input().split(", ")
+
+numbers = list(map(int, list_of_numbers))
+temp_range = 10
+numbers_in_range = []
+
+while not len(numbers) == 0:
+    for num in reversed(numbers):
+        if num <= temp_range:
+            numbers_in_range.append(num)
+            numbers.remove(num)
+    if num > temp_range:
+        temp_range += 10
+        numbers_in_range.reverse()
+        print(f"Group of {temp_range}`s: {numbers_in_range}")
+        numbers_in_range.clear()
