@@ -24,3 +24,21 @@ while not len(numbers) == 0:
         numbers_in_range.reverse()
         print(f"Group of {temp_range}`s: {numbers_in_range}")
         numbers_in_range.clear()
+        
+# 6 List of 10`s ------------------------------ 100 / 1000
+
+list_of_numbers = input().split(", ")
+
+numbers = list(map(int, list_of_numbers))
+temp_range = 10
+numbers_in_range = []
+
+while not len(numbers) == 0:
+    for num in reversed(numbers):
+        if num <= temp_range:
+            numbers_in_range.append(num)
+            numbers.remove(num)
+    numbers_in_range.reverse()
+    print(f"Group of {temp_range}'s: {numbers_in_range}")
+    temp_range += 10
+    numbers_in_range.clear()
