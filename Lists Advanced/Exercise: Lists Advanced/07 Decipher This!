@@ -1,0 +1,26 @@
+# Decipher This!
+Notes: Try to find a way to slice the letters and change the order of the first and the last one. 
+
+secret_message = input().split()
+
+numbers_to_letter = []
+letter_without_numbers = []
+secret_message_deciphered = []
+
+for word in secret_message:
+    numbers = []
+    for w in word:
+        if w.isdigit():
+            numbers.append(w)
+        elif w.isalpha():
+            letter_without_numbers.append(w)
+    res = int("".join(numbers))
+    number_to_word = chr(res)
+    numbers_to_letter.append(number_to_word)
+    letter_without_numbers.reverse()
+    new_word = "".join(numbers_to_letter + letter_without_numbers)
+    secret_message_deciphered.append(new_word)
+    numbers_to_letter.clear()
+    letter_without_numbers.clear()
+
+print(" ".join(secret_message_deciphered))
