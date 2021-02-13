@@ -1,0 +1,37 @@
+targets = input().split()
+
+targets_to_int = list(map(int, targets))
+
+command = input()
+
+while not command == "End":
+    data = command.split()
+    if data[0] == "Shoot":
+        index = int(data[1])
+        given_power = int(data[2])
+        if index > len(targets_to_int):
+            pass
+        elif index < len(targets_to_int):
+            if given_power > targets_to_int[index]:
+                targets_to_int.pop(index)
+            elif given_power <= targets_to_int[index]:
+                targets_to_int[index] -= given_power
+    elif data[0] == "Add":
+        index = int(data[1])
+        given_power = int(data[2])
+        if index > len(targets_to_int):
+            print("Invalid placement!")
+        else:
+            targets_to_int[index] = given_power
+    elif data[0] == "Strike":
+        index = int(data[1])
+        given_power = int(data[2])
+        if index > len(targets_to_int):
+            print("Strike missed!")
+        else:
+            targets_to_int.pop(index+1)
+            targets_to_int.pop(index)
+
+    command = input()
+
+print(targets_to_int)
