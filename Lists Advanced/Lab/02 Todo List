@@ -1,0 +1,15 @@
+todo_command = input()
+todo_list = [0 for num in range(10)]
+
+while not todo_command == "End":
+    data = todo_command.split("-")
+    importance = int(data[0])
+    todo_notes = data[1]
+    todo_list.insert(importance, todo_notes)
+
+    todo_command = input()
+
+while 0 in todo_list:
+    todo_list.remove(0)
+    
+print(todo_list)
