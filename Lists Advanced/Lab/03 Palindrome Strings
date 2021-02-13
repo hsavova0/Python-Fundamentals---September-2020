@@ -1,0 +1,13 @@
+string = input().split()
+searched_palindrom = input()
+palindrom_list = []
+
+for word in string:
+    reverse_word = word[::-1]
+    if word == reverse_word:
+        palindrom_list.append(word)
+
+word_frequency = palindrom_list.count(searched_palindrom)
+
+print(palindrom_list)
+print(f"Found palindrome {word_frequency} times")
