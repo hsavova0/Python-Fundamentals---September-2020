@@ -16,7 +16,7 @@ def add_target(nums, i, v):
     if 0 <= i < len(nums):
         nums.insert(i, v)
     else:
-        print("Invalid placement")
+        print("Invalid placement!")
     return nums
 
 
@@ -29,9 +29,25 @@ def strike(nums, i, v):
         right_part = nums[right_index+1:]
         nums = left_part + right_part
     else:
-        print("Strike missed")
+        print("Strike missed!")
     return nums
 
+
+while not data == "End":
+    command, index, value = data.split()
+    index = int(index)
+    value = int(value)
+
+    if command == "Shoot":
+        targets = shoot(targets, index, value)
+    elif command == "Add":
+        targets = add_target(targets, index, value)
+    elif command == "Strike":
+        targets = strike(targets, index, value)
+
+    data = input()
+
+print("|".join(map(str, targets)))
 
 while not data == "End":
     command, index, value = data.split()
