@@ -1,0 +1,38 @@
+neighborhood = input().split("@")
+neighborhood = list(map(int, neighborhood))
+
+jump_command = input()
+
+current_position = 0
+
+while not jump_command == "Love!":
+    jump = jump_command.split()
+    index = int(jump[1])
+    current_position += index
+    if current_position <= len(neighborhood)-1:
+        if neighborhood[current_position] > 0:
+            neighborhood[current_position] -= 2
+            if neighborhood[current_position] == 0:
+                print(f"Place {current_position} has Valentine's day.")
+        elif neighborhood[current_position] == 0:
+            print(f"Place {current_position} already had Valentine's day.")
+    else:
+        current_position = 0
+        if neighborhood[current_position] > 0:
+            neighborhood[current_position] -= 2
+            if neighborhood[current_position] == 0:
+                print(f"Place {current_position} has Valentine's day.")
+        elif neighborhood[current_position] == 0:
+            print(f"Place {current_position} already had Valentine's day.")
+
+    jump_command = input()
+
+print(f"Cupid's last position was {current_position}.")
+
+count_the_zeroes = neighborhood.count(0)
+
+if count_the_zeroes == len(neighborhood):
+    print("Mission was successful.")
+else:
+    difference = len(neighborhood) - count_the_zeroes
+    print(f"Cupid has failed {difference} places.")
