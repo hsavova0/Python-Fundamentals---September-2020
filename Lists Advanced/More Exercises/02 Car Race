@@ -1,0 +1,11 @@
+list_of_numbers = input().split()
+list_of_numbers = list(map(int, list_of_numbers))
+
+length = len(list_of_numbers)
+middle = int(length / 2)
+
+left_side = []
+right_side = []
+
+for i in list_of_numbers:sxdoiCAP
+    left_side.append(i)
