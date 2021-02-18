@@ -1,11 +1,38 @@
+def left_side(left_half):
+    total_time_left_car = 0
+    for i in left_half:
+        total_time_left_car += i
+        if i == 0:
+            total_time_left_car = total_time_left_car * 0.8
+    return total_time_left_car
+
+
+def right_side(right_half):
+    total_time_right_car = 0
+    for i in right_half:
+        total_time_right_car += i
+        if i == 0:
+            total_time_right_car = total_time_right_car * 0.8
+    return total_time_right_car
+
+
 list_of_numbers = input().split()
 list_of_numbers = list(map(int, list_of_numbers))
 
 length = len(list_of_numbers)
-middle = int(length / 2)
+middle_index = length // 2
 
-left_side = []
-right_side = []
+first_half = list_of_numbers[:middle_index]
+second_half = list_of_numbers[middle_index:]
+second_half.pop(0)
 
-for i in list_of_numbers:sxdoiCAP
-    left_side.append(i)
+total_time_first_car = left_side(first_half)
+total_time_second_car = right_side(second_half)
+
+
+if total_time_first_car < total_time_second_car:
+    print(f"The winner is left with total time: {total_time_first_car:.1f}")
+elif total_time_first_car == total_time_second_car:
+    print(f"The winner is left/right with total time: {total_time_first_car:.1f}")
+else:
+    print(f"The winner is right with total time: {total_time_second_car:.1f}")
