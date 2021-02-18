@@ -1,0 +1,12 @@
+string = input()
+numbers_list = []
+for el in string:
+    if el.isdigit():
+        numbers_list.append(el)
+
+for el in string:
+    if el.isdigit:
+        string.pop(el)
+
+print(string)
+print(numbers_list)
