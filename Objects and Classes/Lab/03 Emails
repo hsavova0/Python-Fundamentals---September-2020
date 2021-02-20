@@ -1,0 +1,44 @@
+class Email:
+    def __init__(self, sender, receiver, content, is_send=False):
+        self.sender = sender
+        self.recipient = receiver
+        self.content = content
+        self.is_send = is_send
+
+    def send(self):
+        self.is_send = True
+
+    def get_info(self):
+        return f" {self.sender} says to {self.recipient}: {self.content}.Sent:{self.is_send} "
+
+
+class Mailbox:
+    def __init__(self):
+        self.emails = []
+
+    def add_email(self, email):
+        self.emails.append(email)
+
+    def send_emails(self, email_indexes):
+        for index in email_indexes:
+            self.emails[index].send()
+
+    def print_mailbox(self):
+        for email in self.emails:
+            print(email.get_info())
+
+
+mailbox = Mailbox()
+while True:
+    command = input()
+    if command == "Stop":
+        break
+    sender, receiver, content = command.split(" ")
+    email = Email(sender, receiver, content)
+    mailbox.add_email(email)
+
+emails_to_send = list(map(int, input().split(", ")))
+
+mailbox.send_emails(emails_to_send)
+
+mailbox.print_mailbox()
