@@ -1,12 +1,37 @@
 string = input()
-numbers_list = []
-for el in string:
-    if el.isdigit():
-        numbers_list.append(el)
+not_digits = []
+only_digits = []
 
 for el in string:
-    if el.isdigit:
-        string.pop(el)
+    if not el.isdigit():
+        not_digits.append(el)
+    else:
+        only_digits.append(el)
 
-print(string)
-print(numbers_list)
+take_list = [only_digits[i] for i in range(len(only_digits)) if i % 2 == 0]
+skip_list = [only_digits[i] for i in range(len(only_digits)) if not i % 2 == 0]
+
+new_string = []
+
+while len(not_digits) > 0:
+    for t in take_list:
+        t = int(t)
+        if t == 0:
+            take_list.pop(t)
+            break
+        else:
+            new_string.append(not_digits[:t])
+            del not_digits[:t]
+            take_list.pop(t)
+            break
+    for s in skip_list:
+        s = int(s)
+        if s == 0:
+            skip_list.pop(s)
+            break
+        else:
+            del not_digits[:s]
+            skip_list.pop(s)
+            break
+
+print(not_digits)
