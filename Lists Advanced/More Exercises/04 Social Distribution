@@ -1,0 +1,29 @@
+60 / 100
+
+population = list(map(int, input().split(", ")))
+minimum_wealth = int(input())
+
+maximum_wealth = max(population)
+
+redistributed_wealth = []
+
+success = True
+
+for wage in population:
+    if wage < minimum_wealth:
+        difference = minimum_wealth - wage
+        if maximum_wealth > minimum_wealth:
+            maximum_wealth -= difference
+            wage += difference
+            redistributed_wealth.append(wage)
+        else:
+            success = False
+            print("No equal distribution possible")
+            break
+    else:
+        redistributed_wealth.append(wage)
+
+if success:
+    redistributed_wealth.append(maximum_wealth)
+    redistributed_wealth.remove(max(population))
+    print(redistributed_wealth)
