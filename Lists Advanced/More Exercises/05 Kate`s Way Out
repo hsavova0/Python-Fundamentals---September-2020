@@ -1,0 +1,31 @@
+number_of_rows = int(input())
+move_count = 0
+maze_list = []
+starting_list = []
+is_all_element_true = True
+
+for maze in range(number_of_rows):
+    maze_constructions = input()
+    maze_list.append(maze_constructions)
+
+for el in range(len(maze_list)):
+    if "k" in maze_list[el]:
+        starting_list = maze_list[el:]
+
+if is_all_element_true:
+    for el in starting_list:
+        if " " not in el:
+            is_all_element_true = False
+
+if not is_all_element_true:
+    print("Kate cannot get out")
+else:
+    string_list = ""
+    for el in starting_list:
+        string_list += el
+    for i in string_list:
+        if i == " ":
+            move_count += 1
+
+
+print(move_count)
