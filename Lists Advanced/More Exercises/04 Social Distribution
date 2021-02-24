@@ -1,5 +1,4 @@
 60 / 100
-
 population = list(map(int, input().split(", ")))
 minimum_wealth = int(input())
 
@@ -24,6 +23,31 @@ for wage in population:
         redistributed_wealth.append(wage)
 
 if success:
-    redistributed_wealth.append(maximum_wealth)
+    max_index = population.index(max(population))
+    redistributed_wealth.insert(max_index, maximum_wealth)
     redistributed_wealth.remove(max(population))
     print(redistributed_wealth)
+    
+    # Working solution:
+    population = [int(num) for num in input().split(", ")]
+wealth_level = int(input())
+
+if sum(population) < len(population) * wealth_level:
+    print('No equal distribution possible')
+else:
+    population.sort()
+    poorest_index = 0
+    richest_index = len(population) - 1
+    while population[poorest_index] < wealth_level:
+        needed = wealth_level - population[poorest_index]
+        can_take = population[richest_index] - wealth_level
+        redistributed_wealth = min(needed, can_take)
+        population[poorest_index] += redistributed_wealth
+        population[richest_index] -= redistributed_wealth
+        population.sort()
+
+    print(population)
+    
+    The input that has been searched is 
+    2, 6, 6, 6
+    5
