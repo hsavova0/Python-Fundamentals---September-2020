@@ -1,0 +1,56 @@
+pirate_ship = input().split(">")
+pirate_ship = list(map(int, pirate_ship))
+warship = input().split(">")
+warship = list(map(int, warship))
+ 
+maximum_health_capacity = int(input())
+ 
+command = input()
+ 
+count_sections = 0
+stalemate = True
+ 
+while not command == "Retire":
+    command = command.split()
+    if command[0] == "Fire":
+        index = int(command[1])
+        damage = int(command[2])
+        if index > len(warship) or index <0:
+            pass
+        elif len(warship) >= index >= 0:
+            warship[index] -= damage
+            if warship[index] <= 0:
+                print("You won! The enemy ship has sunken.")
+                stalemate = False
+                break
+    elif command[0] == "Defend":
+        start_index = int(command[1])
+        end_index = int(command[2])
+        damage = int(command[3])
+        if start_index >= 0 and len(pirate_ship) >= end_index > 0:
+            for i in range(start_index, end_index + 1):
+                pirate_ship[i] -= damage
+                if pirate_ship[i] <= 0:
+                    print("You lost! The pirate ship has sunken.")
+                    stalemate = False
+                    break
+    elif command[0] == "Repair":
+        index = int(command[1])
+        health = int(command[2])
+        if len(pirate_ship) > index >= 0:
+            if pirate_ship[index] + health <= maximum_health_capacity:
+                pirate_ship[index] += health
+            else:
+                pirate_ship[index] = maximum_health_capacity
+    elif command[0] == "Status":
+        lowest_health_capacity = maximum_health_capacity*0.2
+        for i in pirate_ship:
+            if i < lowest_health_capacity:
+                count_sections += 1
+        print(f"{count_sections} sections need repair.")
+ 
+    command = input()
+ 
+if stalemate is True:
+    print(f"Pirate ship status: {sum(pirate_ship)}")
+    print(f"Warship status: {sum(warship)}")
