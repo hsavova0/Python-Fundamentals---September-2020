@@ -1,0 +1,53 @@
+def total_sum(prices):
+    prices = list(map(float, prices))
+    total_price = sum(prices)
+    return total_price
+ 
+ 
+def taxes(prices):
+    prices = list(map(float, prices))
+    tax_list = []
+    for el in prices:
+        if el <= 0:
+            pass
+        else:
+            tax_el = el * 0.2
+            tax_list.append(tax_el)
+    return sum(tax_list)
+ 
+ 
+command = input()
+prices_without_tax = []
+prices_without_tax = list(map(int, prices_without_tax))
+total = 0
+while True:
+    if command == "special":
+        type_of_customer = "special"
+        break
+    elif command == "regular":
+        type_of_customer = "regular"
+        break
+    else:
+        number = float(command)
+        if number > 0:
+            prices_without_tax.append(number)
+        else:
+            print("Invalid price!")
+    command = input()
+ 
+if type_of_customer == "regular":
+    total = total_sum(prices_without_tax) + taxes(prices_without_tax)
+elif type_of_customer == "special":
+    discount = (total_sum(prices_without_tax) + taxes(prices_without_tax))*0.1
+    total = (total_sum(prices_without_tax) + taxes(prices_without_tax))- discount
+ 
+ 
+if len(prices_without_tax) > 0:
+    print(f"Congratulations you've just bought a new computer!")
+    print(f"Price without taxes: {total_sum(prices_without_tax):.2f}$")
+    print(f'Taxes: {taxes(prices_without_tax):.2f}$')
+    print(f'-----------')
+    print(f'Total price: {total:.2f}$')
+ 
+if len(prices_without_tax) == 0:
+    print("Invalid order!")
