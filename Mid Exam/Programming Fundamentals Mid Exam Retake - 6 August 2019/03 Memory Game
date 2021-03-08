@@ -1,0 +1,32 @@
+# # def cheating(sequence, i_1, i_2):
+# #     if 0 > i_1 or i_1 > len(sequence) or 0 > i_2 or i_2 > len(sequence) :
+# #         print("Invalid input! Adding additional elements to the board")
+# #         midpoint = len(sequence) // 2
+# #         sequence = sequence[0: midpoint] + ["-2a"] + ["-2a"] + sequence[midpoint:]
+# #         return sequence
+#
+def different_vs_matching(sequence, i_1, i_2):
+    if 0 <= i_1 < len(sequence) and 0 <= i_2 < len(sequence):
+        if sequence[i_1] == sequence[i_2]:
+            print(f"Congrats! You have found matching elements - {sequence[i_1]}!")
+            sequence.pop(i_1)
+            sequence.pop(i_2)
+        else:
+            print("Try again!")
+    if 0 > i_1 or i_1 > len(sequence) or 0 > i_2 or i_2 > len(sequence) :
+        print("Invalid input! Adding additional elements to the board")
+        midpoint = len(sequence) // 2
+        sequence = sequence[0: midpoint] + ["-2a"] + ["-2a"] + sequence[midpoint:]
+
+
+sequence_of_elements = input().split()
+sequence_of_elements = list(map(int, sequence_of_elements))
+command = input()
+
+while not command == "end":
+    index_1, index_2 = command.split()
+    index_1 = int(index_1)
+    index_2 = int(index_2)
+    different_vs_matching(sequence_of_elements, index_1, index_2)
+    # cheating(sequence_of_elements, index_1, index_2)
+    command = input()
