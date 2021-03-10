@@ -1,0 +1,38 @@
+100/100
+def swap(array_list, to_do_command):
+    to_do_command = to_do_command.split()
+    index_1 = int(to_do_command[1])
+    index_2 = int(to_do_command[2])
+    array_list[index_1], array_list[index_2] = array_list[index_2], array_list[index_1]
+    return array_list
+
+
+def multiply(array_list, to_do_command):
+    to_do_command = to_do_command.split()
+    index_1 = int(to_do_command[1])
+    index_2 = int(to_do_command[2])
+    multiplied_element = array_list[index_1]*array_list[index_2]
+    array_list[index_1] = multiplied_element
+    return array_list
+
+
+def decrease(array_list):
+    for i in range(len(array_list)):
+        array_list[i] -= 1
+    return array_list
+
+
+array = list(map(int, input().split()))
+command = input()
+
+while not command == "end":
+    if "swap" in command:
+        swap(array, command)
+    elif "multiply" in command:
+        multiply(array, command)
+    elif "decrease" in command:
+        decrease(array)
+
+    command = input()
+
+print(*array, sep=", ")
