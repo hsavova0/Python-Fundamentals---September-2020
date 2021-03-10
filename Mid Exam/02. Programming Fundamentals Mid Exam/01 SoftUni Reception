@@ -1,0 +1,20 @@
+90/100
+employee_1 = int(input())
+employee_2 = int(input())
+employee_3 = int(input())
+students_count = int(input())
+
+time_needed = 0
+
+while students_count > 0:
+    if time_needed % 4 == 0 and time_needed > 0:
+        time_needed += 1
+    else:
+        students_count -= employee_1
+        students_count -= employee_2
+        students_count -= employee_3
+        time_needed += 1
+if time_needed % 4 == 0:
+    time_needed += 1
+
+print(f"Time needed: {time_needed}h.")
