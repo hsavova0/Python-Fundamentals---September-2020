@@ -1,3 +1,4 @@
+100/100
 array = list(map(int, input().split(" ")))
 
 average_number = sum(array) // len(array)
