@@ -1,0 +1,29 @@
+array = list(map(int, input().split(" ")))
+
+average_number = sum(array) // len(array)
+
+count_the_numbers = 0
+
+output_numbers = []
+
+for el in array:
+    if el > average_number:
+        output_numbers.append(el)
+
+output_numbers.sort()
+numbers_to_print = []
+for i in range( len(output_numbers) - 1, -1, -1):
+    numbers_to_print.append(output_numbers[i])
+numbers = []
+for i in numbers_to_print:
+    if count_the_numbers < 5:
+        numbers.append(i)
+        count_the_numbers += 1
+
+numbers = " ".join(map(str, numbers))
+
+
+if len(output_numbers) == 0:
+    print("No")
+else:
+    print(numbers)
