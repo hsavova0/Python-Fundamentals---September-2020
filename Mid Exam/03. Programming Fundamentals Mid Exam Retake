@@ -1,0 +1,21 @@
+health = int(input())
+command = input()
+won_battles_count = 0
+state_of_battle = True
+
+while not command == "End of battle":
+    distance = int(command)
+    if health - distance < 0:
+        print(f"Not enough energy! Game ends with {won_battles_count} won battles and {health} energy")
+        state_of_battle = False
+        break
+    else:
+        health -= distance
+        won_battles_count += 1
+    if won_battles_count % 3 == 0:
+        health += won_battles_count
+
+    command = input()
+
+if state_of_battle is True:
+    print(f"Won battles: {won_battles_count}. Energy left: {health}")
