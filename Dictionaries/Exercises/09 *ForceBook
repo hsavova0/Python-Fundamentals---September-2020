@@ -20,3 +20,34 @@ for force_side, force_user in sorted(unique_force_user.items(), key=lambda x:x[0
     print(f"Side: {force_side}, Members: {len(force_user)}")
     for el in range(len(force_user)):
         print(f"! {force_user[el]}")
+
+
+def add_user(forces_dict, site_to_join, users_to_add):
+    if site_to_join not in forces_dict:
+        forces_dict[site_to_join] = []
+        forces_dict[site_to_join].append(users_to_add)
+    else:
+        if users_to_add not in forces_dict[site_to_join]:
+            forces_dict[site_to_join].append(users_to_add)
+    return forces_dict
+
+
+def transfer_user(forces_dict, side_to_transfer, user_to_transfer):
+    for side_, users in forces_dict.items():
+        if user_to_transfer in users:
+            forces_dict[side_].remove(user_to_transfer)
+            return add_user(forces_dict,side_to_transfer, user_to_transfer)
+    return add_user(forces_dict,side_to_transfer, user_to_transfer)
+
+
+data = input()
+forces = {}
+while not data == "Lumpawaroo":
+    data_list = data.split(" | ")
+    if len(data_list) > 1:
+        side, user = data.split(" | ")
+        add_user(forces, side, user)
+    else:
+        user, side = data.split(" -> ")
+        transfer_user(forces, side,user)
+    data = input()
