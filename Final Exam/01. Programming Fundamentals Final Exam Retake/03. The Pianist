@@ -1,0 +1,72 @@
+What doesnt work is the change_key function. Otherwise the achieved points are 50/50.
+
+# Programming Fundamentals Final Exam Retake 15.08.2020
+# Problem 3. The Pianist
+
+
+# def add(composers_dict, p, c, k):
+#     if p not in composers_dict:
+#         composers_dict[p] = {'c': c, "k": k}
+#         print(f"{p} by {c} in {k} added to the collection!")
+#     else:
+#         print(f"{p} is already in the collection!")
+#     return composers_dict
+
+
+def remove(composers_dict, p):
+    if p not in composers_dict:
+        print(f"Invalid operation! {p} does not exist in the collection.")
+    else:
+        composers_dict.pop(p)
+        print(f"Successfully removed {p}!")
+    return composers_dict
+
+
+def change_key(composers_dict, p, n_k):
+    if p not in composers_dict:
+        print(f"Invalid operation! {p} does not exist in the collection.")
+    else:
+        composers_dict[p]["k"] = n_k
+        print(f"Changed the key of {p} to {n_k}!")
+    return composers_dict
+
+
+
+number_of_pieces = int(input())
+composers_collection = {}
+
+
+for _ in range(number_of_pieces):
+    data = input().split("|")
+    piece = data[0]
+    composer = data[1]
+    key = data[2]
+    if piece not in composers_collection:
+        composers_collection[piece] = {"composer": composer, "key": key}
+command = input()
+while not command == "Stop":
+    command = command.split("|")
+    if command[0] == "Add":
+        piece = command[1]
+        composer = command[2]
+        key = command[3]
+        # add(composers_collection, piece, composer, key)
+        if piece not in composers_collection:
+            composers_collection[piece] = {"composer": composer, "key": key}
+            print(f"{piece} by {composer} in {key} added to the collection!")
+        else:
+            print(f"{piece} is already in the collection!")
+    elif command[0] == "Remove":
+        piece = command[1]
+        remove(composers_collection, piece)
+    elif command[0] == "ChangeKey":
+        piece = command[1]
+        new_key = command[2]
+        change_key(composers_collection, piece, new_key)
+
+    command = input()
+
+ordered_collection = sorted(composers_collection.items(), key=lambda x: x[0])
+
+for piece, collection_list in ordered_collection:
+    print(f"{piece} -> Composer: {composers_collection[piece]['composer']}, Key: {composers_collection[piece]['key']}")
