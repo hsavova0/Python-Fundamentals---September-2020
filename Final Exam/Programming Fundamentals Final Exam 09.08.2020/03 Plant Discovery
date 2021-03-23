@@ -1,0 +1,44 @@
+# Programming Fundamentals Final Exam 09.08.2020
+# Problem 3. Plant Discovery
+
+n = int(input())
+plants_collection = {}
+plants_rating = {}
+
+for _ in range(n):
+    plants = input().split("<->")
+    name, rarity = plants
+    rarity = float(rarity)
+    plants_collection[name] = [rarity]
+    plants_rating[name] = []
+
+tokens = input()
+while not tokens == "Exhibition":
+    tokens = tokens.split(": ")
+    command = tokens[0]
+    elements = tokens[1].split(" - ")
+    name = elements[0]
+    if name not in plants_collection:
+        print("error")
+        continue
+    if command == "Rate":
+        rating = float(elements[1])
+        plants_rating[name].append(rating)
+    elif command == "Update":
+        new_rarity = float(elements[1])
+        plants_collection[name] = [new_rarity]
+    elif command == "Reset":
+        plants_rating[name] = 0
+    tokens = input()
+
+for key, value in plants_rating.items():
+    if value == 0:
+        plants_rating[key] = value
+        continue
+    else:
+        plants_rating[key] = sum(value)/len(value)
+
+sorted_plant_collection = sorted(plants_collection.items(), key=lambda x: x[1], reverse=True)
+sorted_plant_rating = sorted(plants_rating.items(), key=lambda x: x[1], reverse=True)
+print(sorted_plant_collection)
+print(sorted_plant_rating)
