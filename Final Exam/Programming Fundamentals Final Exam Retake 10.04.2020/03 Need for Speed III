@@ -1,1 +1,63 @@
-a = 5
+def merge_Dict(dict1, dict2):
+    dict3 = {**dict1, **dict2}
+    for key, value in dict3.items():
+        if key in dict1 and key in dict2:
+            dict3[key] = [value, dict1[key]]
+    return dict3
+
+
+number_of_cars = int(input())
+cars_mileage = {}
+cars_fuel = {}
+for _ in range(number_of_cars):
+    cars_details = input().split("|")
+    car, mileage, fuel = cars_details
+    mileage = int(mileage)
+    fuel = int(fuel)
+    cars_mileage[car] = mileage
+    cars_fuel[car] = fuel
+
+commands = input()
+
+while not commands == "Stop":
+    commands = commands.split(" : ")
+    tokens = commands[0]
+    if tokens == "Drive":
+        car = commands[1]
+        distance = int(commands[2])
+        fuel_needed = int(commands[3])
+        difference = cars_fuel[car] - fuel_needed
+        if difference <= 0:
+            print('Not enough fuel to make that ride')
+        else:
+            cars_fuel[car] -= fuel_needed
+            cars_mileage[car] += distance
+            print(f"{car} driven for {distance} kilometers. {fuel_needed} liters of fuel consumed.")
+            if cars_mileage[car] >= 100000:
+                del cars_mileage[car]
+                del cars_fuel[car]
+    elif tokens == "Refuel":
+        car = commands[1]
+        fuel_to_refill = int(commands[2])
+        if cars_fuel[car] + fuel_to_refill >= 75:
+            print(f"{car} refueled with {75 - cars_fuel[car]} liters")
+            cars_fuel[car] = 75
+        else:
+            cars_fuel[car] += fuel_to_refill
+            print(f"{car} refueled with {fuel_to_refill} liters")
+    elif tokens == "Revert":
+        car = commands[1]
+        kilometers = int(commands[2])
+        cars_mileage[car] -= kilometers
+        if cars_mileage[car] >= 10000:
+            print(f"{car} mileage decreased by {kilometers} kilometers")
+        else:
+            cars_mileage[car] = 10000
+    commands = input()
+
+new_dict = dict(merge_Dict(cars_mileage, cars_fuel))
+
+for key, value in new_dict:
+    print(key)
+    for el in value:
+        print(el)
