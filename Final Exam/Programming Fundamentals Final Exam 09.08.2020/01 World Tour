@@ -1,0 +1,34 @@
+# Programming Fundamentals Final Exam 09.08.2020
+# Problem 1. World Tour
+
+stops = input()
+command = input()
+
+while not command == "Travel":
+    command = command.split(":")
+    if "Add Stop" in command:
+        index = int(command[1])
+        string_to_add = command[2]
+        if 0 < index < len(stops):
+            stops = stops[:index] + string_to_add + stops[index:]
+            print(stops)
+        else:
+            print(stops)
+    elif "Remove Stop" in command:
+        start_index = int(command[1])
+        end_index = int(command[2])
+        if start_index in range(len(stops)) and end_index in range(len(stops)):
+            stops = stops[:start_index] + stops[end_index+1:]
+            print(stops)
+        else:
+            print(stops)
+    elif "Switch" in command:
+        old_string = command[1]
+        new_string = command[2]
+        stops = stops.replace(old_string, new_string)
+        print(stops)
+
+
+    command = input()
+
+print(f"Ready for world tour! Planned stops: {stops}")
