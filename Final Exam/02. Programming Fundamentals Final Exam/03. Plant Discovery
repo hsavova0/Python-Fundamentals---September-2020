@@ -1,0 +1,45 @@
+collection = {}
+
+n = int(input())
+
+for i in range(n):
+    line = input().split('<->')
+    plant = line[0]
+    rarity = int(line[1])
+    collection[plant] = [rarity]
+
+while True:
+    command_line = input()
+    if command_line == 'Exhibition':
+        break
+    command, data = command_line.split(': ')
+    data = data.split(' - ')
+    plant = data[0]
+    if plant not in collection:
+        print("error")
+        continue
+    if command == 'Rate':
+        rating = int(data[1])
+        collection[plant].append(rating)
+    elif command == 'Update':
+        new_rarity = int(data[1])
+        collection[plant][0] = new_rarity
+    elif command == 'Reset':
+        rarity = collection[plant][0]
+        collection[plant].clear()
+        collection[plant] = [rarity]
+    else:
+        print('error')
+edit_collection = {}
+for k, v in collection.items():
+    if len(v) - 1 > 0:
+        avg = sum(v[1:]) / (len(v) - 1)
+    else:
+        avg = 0
+    edit_collection[k] = [v[0], avg]
+
+print("Plants for the exhibition:")
+for plant, stats in sorted(edit_collection.items(), key=lambda x: (-x[1][0], -x[1][1])):
+    rarity = stats[0]
+    avg = stats[1]
+    print(f"- {plant}; Rarity: {rarity}; Rating: {avg:.2f}")
